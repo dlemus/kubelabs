@@ -4,7 +4,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hello-k8s
-  namespace: jedi-team
+  namespace: eduk8s
 spec:
   type: LoadBalancer
   ports:
@@ -17,7 +17,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-k8s
-  namespace: jedi-team
+  namespace: eduk8s
 spec:
   replicas: 3
   selector:
