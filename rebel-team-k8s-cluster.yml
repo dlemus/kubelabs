@@ -1,0 +1,21 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1               # TKG API endpoint
+kind: TanzuKubernetesCluster                            # required parameter
+metadata:
+  name: rebel-team-k8s-cluster                          # cluster name, user defined 
+  namespace: jedi-team                                  # supervisor namespace
+spec:
+  distribution:
+    version: v1.18                                      # resolved kubernetes version
+  topology:
+    controlPlane:
+      count: 1                                          # number of control plane nodes
+      class: best-effort-small                          # vmclass for control plane nodes
+      storageClass: tanzu                               # storageclass for control plane
+    workers:
+      count: 1                                          # number of worker nodes
+      class: best-effort-small                          # vmclass for worker nodes
+      storageClass: tanzu                               # storageclass for worker nodes
+  settings:
+    storage:
+      classes: ["tanzu"]
+      defaultClass: tanzu
